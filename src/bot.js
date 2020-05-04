@@ -1,23 +1,21 @@
 const puppeteer = require('puppeteer');
 
+const FLAG = process.env.FLAG;
+
 const runBot = async (url) => {
   const browser = await puppeteer.launch(
-    headless=false,
     args=['--no-sandbox', '--disable-gpu']
   );
   page = await browser.newPage();
-  console.log('testing flag:', process.env.FLAG);
-  await page.evaluateOnNewDocument(() => {
-    document.cookie = `flag=${process.env.FLAG}`;
-  });
 
-  console.log('aqui?');
+  await page.evaluateOnNewDocument((flag) => {
+    document.cookie = `flag=${flag}`;
+  }, FLAG);
 
   await page.goto(url);
   setTimeout(() => {
     browser.close();
-    console.log('fechou?');
-  }, 5000);
+  }, 3000);
 }
 
 exports.runBot = runBot;

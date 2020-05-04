@@ -28,7 +28,7 @@ const checkPow = (challenge, zeros, userAnswer) => {
       challenge + userAnswer.toString()
   ).digest('hex');
   console.log('checked Pow', hash);
-  return hash.substr(0, zeros) == "0".repeat(zeros);
+  return hash.substr(0, zeros) === "0".repeat(zeros);
 }
 
 // Configuration
@@ -70,7 +70,7 @@ app.post('/contact', (req, res) => {
     if(url.host !== 'localhost:4000') {
       errors['url'] = 'URL needs to be from the same site.';
     } else {
-      bot.runBot(url);
+      bot.runBot(url.href);
     }
   } else {
     errors['url'] = 'URL cannot be empty.';
