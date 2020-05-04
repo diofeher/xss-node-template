@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Report URL</title>
+  </head>
+  <body>
+    <h1>Send the report URL:</h1>
+    <form method="POST" action="/contact">
+      <div class="form-group">
+        <label for="url">URL:</label>
+        <input type="text" name="url" />
+      </div>
+
+      <div class="form-group">
+        <label for="pow">Captcha for proof of work:</label>
+        <input type="text" name="pow" />
+      </div>
+
+      <div>
+        <h4>Proof of work:</h4>
+        <pre>
+          <code>
+            | let i=0;
+            | while(true) {
+            |   i += 1;
+            |   const digest = md5('#{challenge}'+i.toString()).digest();
+            |   if(digest.substr(0, #{zeros}) == '#{'0'.repeat(zeros)}') {
+            |     console.log('Found proof of work', i);
+            |     break;
+            |   }
+            | }
+          </code>
+        </pre>
+      </div>
+
+      <input type="submit" />
+    </form>
+  </body>
+</html>

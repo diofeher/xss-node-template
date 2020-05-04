@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>XSS Example!</title>
+  </head>
+  <body>
+    <h1>XSS Example!</h1>
+    <h2 id="xss"></h2>
+    <script>
+      | xss.innerHTML = (new URL(location).searchParams.get("xss") || "XSS is") + " basic challenge!"
+    </script>
+  </body>
+</html>
